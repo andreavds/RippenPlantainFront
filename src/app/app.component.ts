@@ -1,18 +1,25 @@
 import { Component } from '@angular/core';
+import { MenuController } from '@ionic/angular';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+
   public appPages = [
-    { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/spam', icon: 'warning' },
+    { title: 'Home', component: 'HomeComponent', url: '/home', icon: 'mail' },
+    { title: 'Movie', url: '/movie', icon: 'paper-plane' },
+    { title: 'User', url: '/user', icon: 'heart' },
+    { title: 'Logout', url: '/logout', icon: 'archive' },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+  constructor(private menuController: MenuController) {}
+
+  closeMenuAndNavigate(url: string) {
+    this.menuController.close().then(() => {
+      console.log('Cerrando menú y navegando a:', url);
+    });
+  }
+
 }

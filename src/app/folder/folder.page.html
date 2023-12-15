@@ -16,6 +16,16 @@
 
   <div id="container">
     <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-list>
+      <ion-item routerLink="/home" routerDirection="forward">
+        <ion-label>Home</ion-label>
+      </ion-item>
+      <ion-item routerLink="/movie" routerDirection="forward">
+        <ion-label>Movie</ion-label>
+      </ion-item>
+      <ion-item routerLink="/user" routerDirection="forward">
+        <ion-label>Profile</ion-label>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>
