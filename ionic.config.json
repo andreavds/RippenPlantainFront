@@ -1,0 +1,7 @@
+{
+  "name": "RippenPlantainsFront",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
