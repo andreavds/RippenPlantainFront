@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +11,12 @@ export class AppComponent {
 
   public appPages = [
     { title: 'Home', component: 'HomeComponent', url: '/home', icon: 'mail' },
-    { title: 'Movie', url: '/movie', icon: 'paper-plane' },
+    { title: 'Search', component: 'SearchComponent', url: '/search', icon: 'paper-plane' },
     { title: 'User', url: '/user', icon: 'heart' },
     { title: 'Logout', url: '/logout', icon: 'archive' },
   ];
-  constructor(private menuController: MenuController) {}
+  constructor(private menuController: MenuController,
+    private authService: AuthService) {}
 
   closeMenuAndNavigate(url: string) {
     this.menuController.close().then(() => {
@@ -22,4 +24,10 @@ export class AppComponent {
     });
   }
 
+  closeMenuAndLogout() {
+    this.menuController.close().then(() => {
+      console.log('Cerrando menú y cerrando sesión');
+      this.authService.logout();
+    });
+  }
 }

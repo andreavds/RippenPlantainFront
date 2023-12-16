@@ -1,0 +1,25 @@
+<ion-app>
+  <ion-header class="header">
+    <app-header></app-header>
+  </ion-header>
+
+  <div class="page-container">
+    <h1>Search for movies</h1>
+  
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Search for movies..." class="search-input">
+      <button (click)="searchMovies()" class="search-button">Search</button>
+    </div>
+  
+    <div *ngIf="searchResults.length > 0" class="movie-list">
+      <h2>Results:</h2>
+      <ul>
+        <li *ngFor="let movie of searchResults" class="movie-item">
+          <img [src]="'https://image.tmdb.org/t/p/w300_and_h450_bestv2/' + movie.posterImage" [alt]="movie.title">
+          <p>{{ movie.title }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+</ion-app>

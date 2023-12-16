@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { MovieComponent } from './movie/movie.component';
-import { UserComponent } from './user/user.component';
+import { HomeComponent } from './pages/home/home.component';
+import { MovieComponent } from './pages/movie/movie.component';
+import { UserComponent } from './pages/user/user.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SearchComponent } from './pages/search/search.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 const routes: Routes = [
   {
@@ -15,16 +18,33 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'movie',
+    path: 'movie/:apiId',
     component: MovieComponent
   },
   {
     path: 'user',
     component: UserComponent
   },
+  { 
+    path: 'login', 
+    component: LoginComponent 
+  },  
+  { 
+    path: 'register', 
+    component: RegisterComponent
+  },  
+  {
+    path: 'search',
+    component: SearchComponent
+  },
+  { 
+    path: '**', 
+    redirectTo: '/login' 
+  },
+
   {
     path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then(m => m.FolderPageModule)
+    loadChildren: () => import('./components/folder/folder.module').then(m => m.FolderPageModule)
   },
 ];
 

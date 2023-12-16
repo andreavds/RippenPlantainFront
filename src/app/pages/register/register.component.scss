@@ -1,0 +1,38 @@
+/* Estilos para el formulario de registro */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Raleway-Thin', sans-serif;
+  }
+  
+  /* Estilos para los elementos de entrada */
+  .input-item {
+    width: 80%;
+    margin-bottom: 15px;
+    border-radius: 10px; /* Bordes redondeados */
+    --background: #8a8169; /* Color de fondo del input */
+  }
+  
+  ion-input {
+    border-radius: 25px; /* Bordes redondeados */
+  }
+  
+  /* Estilos para el botón de registro */
+  .register-button {
+    --background: #c47747; /* Color de fondo del botón */
+    --color: white; /* Color del texto del botón */
+    --border-radius: 25px; /* Radio del borde del botón */
+    font-family: 'Raleway-ExtraBold', sans-serif;
+  }
+  
+  /* Estilos para el enlace de inicio de sesión */
+  .login-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    font-family: 'Raleway-ExtraBold', sans-serif;
+    color: #c47747; /* Color del texto del enlace */
+  }
+  

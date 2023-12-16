@@ -1,8 +1,11 @@
-export interface UserProfile {
-    fullName: string;
-    username: string;
-    profilePicture: string;
-    bannerPicture?: string;
-    bio?: string;
-  }
-  
+export interface User {
+  fullName: string;
+  email: string;
+  profilePicture: string;
+  bannerPicture?: string;
+  username: string;
+  password: string;
+  isCritic: boolean;
+  createdAt: Date;
+  bio?: string;
+}

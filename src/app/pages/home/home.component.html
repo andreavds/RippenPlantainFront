@@ -1,0 +1,24 @@
+<ion-app>
+  <ion-header class="header">
+    <app-header></app-header>
+  </ion-header>
+
+  <ion-content>
+    <div class="movie-list">
+      <h2>Popular movies</h2>
+
+      <div class="movies-wrapper">
+        <div class="movie" *ngFor="let movie of displayedMovies">
+          <div class="movie-content" (click)="navigateToMovie(movie.apiId)">
+            <img [src]="'https://image.tmdb.org/t/p/w600_and_h900_bestv2/' + movie.posterImage" [alt]="movie.title" class="movie-poster">
+            <p class="movie-title">{{ movie.title }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <button class="load-more-button" *ngIf="!showAllMovies && displayedMovies.length < movies.length" (click)="loadMoreMovies()">View more</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-app>

@@ -1,8 +1,20 @@
 export interface Movie {
     title: string;
-    releaseYear: number,
-    director: string,
-    genre: string,
-    description: string,
-    rating: number
-}
+    genre: string;
+    posterImage: string;
+    description: string;
+    trailer: string;
+    userInt: number;
+    userMean: number;
+    criticInt: number;
+    criticMean: number;
+    rating: string;
+    originalLanguage: string;
+    releaseDate: string;
+    duration: string;
+    isMovie: boolean;
+    apiId: string;
+    _id: string;
+    __v: number;
+  }
+  

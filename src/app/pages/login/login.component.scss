@@ -1,0 +1,49 @@
+/* Estilos para las tipografías */
+@font-face {
+    font-family: 'Raleway-Thin'; 
+    src: url('../../../assets/Raleway-Thin.ttf') format('truetype'); 
+  }
+  
+  @font-face {
+    font-family: 'Raleway-ExtraBold'; 
+    src: url('../../../assets/Raleway-ExtraBold.ttf') format('truetype'); 
+  }
+  
+  /* Estilos para el formulario de inicio de sesión */
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Raleway-Thin';
+  }
+  
+  /* Estilos para los elementos de entrada */
+  .input-item {
+    width: 80%;
+    margin-bottom: 15px;
+    border-radius: 10px; /* Bordes redondeados */
+    --background: #8a8169; /* Color de fondo del input */
+    font-family: 'Raleway-Thin';
+  }
+  
+  ion-input {
+    border-radius: 25px; /* Bordes redondeados */
+  }
+  
+  /* Estilos para el botón de inicio de sesión */
+  .login-button {
+    --background: #c47747; /* Color de fondo del botón */
+    --color: white; /* Color del texto del botón */
+    --border-radius: 25px; /* Radio del borde del botón */
+    font-family: 'Raleway-ExtraBold', sans-serif;
+  }
+  
+  /* Estilos para el botón de registro */
+  .register-link {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    font-family: 'Raleway-ExtraBold', sans-serif; 
+  }
+  

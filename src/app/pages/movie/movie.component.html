@@ -1,0 +1,32 @@
+<ion-app>
+  <ion-header class="header">
+    <app-header></app-header>
+  </ion-header>
+
+<ion-content>
+  <div *ngIf="movie" class="movie-details">
+    <div class="poster">
+      <img [src]="'https://image.tmdb.org/t/p/w600_and_h900_bestv2/' + movie.posterImage" [alt]="movie.title" class="movie-poster">
+    </div>
+    <div class="details">
+      <h2>{{ movie.title }}</h2>
+      <p>Genre: {{ movie.genre }}</p>
+      <p class="description-text">Description: {{ movie.description }}</p>
+      <div class="ratings">
+        <div class="user-rating">
+          <p>User Rating:</p>
+          <p>{{ movie.userMean }}%</p>
+        </div>
+        <div class="critic-rating">
+          <p>Critic Rating:</p>
+          <p>{{ movie.criticMean }}%</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div *ngIf="!movie">
+    <p>Loading...</p>
+  </div>
+</ion-content>
+</ion-app>

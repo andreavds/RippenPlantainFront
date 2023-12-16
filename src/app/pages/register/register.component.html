@@ -1,0 +1,27 @@
+<form (ngSubmit)="onRegister()" class="register-form">
+    <ion-item class="input-item">
+      <ion-label position="floating">Username</ion-label>
+      <ion-input type="text" name="username" [(ngModel)]="registerData.username" required></ion-input>
+    </ion-item>
+  
+    <ion-item class="input-item">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" name="email" [(ngModel)]="registerData.email" required></ion-input>
+    </ion-item>
+  
+    <ion-item class="input-item">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" name="password" [(ngModel)]="registerData.password" required></ion-input>
+    </ion-item>
+  
+    <ion-item class="input-item">
+      <ion-label position="floating">Fullname</ion-label>
+      <ion-input type="text" name="fullname" [(ngModel)]="registerData.fullname" required></ion-input>
+    </ion-item>
+  
+    <ion-button type="submit" expand="block" class="register-button">Sign up</ion-button>
+<div class="login-button">
+    <ion-button routerLink="/login" fill="clear" expand="block">Have an account? Sign in</ion-button>
+</div>
+  </form>
+  

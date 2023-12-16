@@ -1,0 +1,40 @@
+<ion-app>
+  <ion-header class="header">
+    <app-header></app-header>
+  </ion-header>
+
+<div *ngIf="userProfile">
+  <div class="profile-details">
+    <div class="user-picture">
+      <img [src]="userProfile.profilePicture" alt="Profile Picture">
+    </div>
+
+    <div class="user-info">
+      <h2>{{ userProfile.fullName }}</h2>
+      <p>&#64;{{ userProfile.username }}</p>
+
+      <p *ngIf="!isEditing">{{ userProfile.bio }}</p>
+
+      <ion-button (click)="toggleEdit()">Edit user</ion-button>
+
+      <div *ngIf="isEditing">
+        <ion-item>
+          <ion-label position="stacked">New username</ion-label>
+          <ion-input [(ngModel)]="editedUser.username" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">New fullname</ion-label>
+          <ion-input [(ngModel)]="editedUser.fullName" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">New bio</ion-label>
+          <ion-textarea [(ngModel)]="editedUser.bio"></ion-textarea>
+        </ion-item>
+
+        <ion-button (click)="saveChanges()">Save</ion-button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</ion-app>
