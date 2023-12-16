@@ -53,6 +53,10 @@ export class MovieService {
           genre: data.genre,
           userMean: data.userMean,
           criticMean: data.criticMean,
+          trailer: data.trailer,
+          originalLanguage: data.originalLanguage,
+          duration: data.duration,
+          releaseDate: data.releaseDate
         } as Movie;
       })
     );
@@ -69,14 +73,38 @@ export class MovieService {
     return this.http.post<Movie[]>(`${this.apiUrl}/fuzzySearchMovies`, requestBody, { headers });
   }
 
-  rateMovie(apiId: string, userRating: number): Observable<any> {
+  sendRating(apiId: string, rating: number): Observable<any> {
+    const requestBody = {
+      movieId: apiId,
+      userRating: rating
+    };
+
     const token = localStorage.getItem('accessToken');
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
 
-    const requestBody = { movieId: apiId, userRating };
     return this.http.put<any>(`${this.apiUrl}/ratemovie`, requestBody, { headers });
+  }
+
+
+
+
+  searchMoviesWithFilter(searchTerm: string, filterType: string): Observable<Movie[]> {
+    let url = `${this.apiUrl}?search=${searchTerm}`;
+
+    if (filterType === 'release_date') {
+      url += '&filter=release_date';
+    } else if (filterType === 'genre') {
+      url += '&filter=genre';
+    } else if (filterType === 'duration') {
+      url += '&filter=duration';
+    } else if (filterType === 'title_series') {
+      url += '&filter=title_series';
+    } else if (filterType === 'title_movie') {
+      url += '&filter=title_movie';
+    }
+    return this.http.get<Movie[]>(url);
   }
 }

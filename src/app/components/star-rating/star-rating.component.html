@@ -1,7 +1,8 @@
-<div class="star-rating">
-  <i class="fa fa-star" [ngClass]="{'checked': rating >= 1}" (click)="rate(1)"></i>
-  <i class="fa fa-star" [ngClass]="{'checked': rating >= 2}" (click)="rate(2)"></i>
-  <i class="fa fa-star" [ngClass]="{'checked': rating >= 3}" (click)="rate(3)"></i>
-  <i class="fa fa-star" [ngClass]="{'checked': rating >= 4}" (click)="rate(4)"></i>
-  <i class="fa fa-star" [ngClass]="{'checked': rating >= 5}" (click)="rate(5)"></i>
+<div class="star-container">
+  <ion-icon
+    name="star"
+    *ngFor="let num of [1, 2, 3, 4, 5]"
+    (click)="rate(num)"
+    [ngStyle]="{ 'color': getColor(num - 1) }"
+  ></ion-icon>
 </div>

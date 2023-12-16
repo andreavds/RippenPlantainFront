@@ -25,6 +25,6 @@ export class UserComponent implements OnInit {
   }
 
   saveChanges() {
-    console.log('Simulación: Usuario actualizado exitosamente', this.editedUser);
+    console.log('Guardado', this.editedUser);
   }
 }

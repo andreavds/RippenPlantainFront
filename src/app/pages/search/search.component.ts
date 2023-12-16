@@ -1,3 +1,4 @@
+// search.component.ts
 import { Component } from '@angular/core';
 import { MovieService } from '../../services/movie.service';
 import { Movie } from '../../models/movie.interface';
@@ -9,15 +10,21 @@ import { Movie } from '../../models/movie.interface';
 })
 export class SearchComponent {
   searchTerm: string = '';
+  filterType: string = 'release_date';
   searchResults: Movie[] = [];
 
   constructor(private movieService: MovieService) {}
 
   searchMovies() {
     if (this.searchTerm.trim() !== '') {
-      this.movieService.fuzzySearchMovies(this.searchTerm.trim()).subscribe((data: Movie[]) => {
-        this.searchResults = data;
-      });
+      this.movieService.searchMoviesWithFilter(this.searchTerm.trim(), this.filterType).subscribe(
+        (data: Movie[]) => {
+          this.searchResults = data;
+        },
+        (error) => {
+          console.error('Error fetching movies:', error);
+        }
+      );
     }
   }
 }

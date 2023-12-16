@@ -1,16 +1,42 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from "@angular/core";
 
 @Component({
-  selector: 'app-star-rating',
-  templateUrl: './star-rating.component.html',
-  styleUrls: ['./star-rating.component.css']
+  selector: "star-rating",
+  templateUrl: "star-rating.component.html"
 })
 export class StarRatingComponent {
   @Input() rating: number = 0;
-  @Output() ratingChanged = new EventEmitter<number>();
+  @Output() ratingChange: EventEmitter<number> = new EventEmitter<number>();
 
-  rate(value: number) {
-    this.rating = value;
-    this.ratingChanged.emit(value);
+  constructor() {}
+
+  rate(index: number) {
+    // Increment the rating by 1 when a star is clicked
+    this.rating = index;
+    // Emit the updated rating to the parent component
+    this.ratingChange.emit(this.rating);
+  }
+
+  getColor(index: number): string {
+    if (this.isAboveRating(index)) {
+      return 'grey'; 
+    }
+
+    switch (this.rating) {
+      case 1:
+      case 2:
+        return 'red'; 
+      case 3:
+        return 'yellow';
+      case 4:
+      case 5:
+        return 'green'; 
+      default:
+        return 'grey'; 
+    }
+  }
+
+  isAboveRating(index: number): boolean {
+    return index >= this.rating;
   }
 }

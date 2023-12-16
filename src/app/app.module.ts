@@ -12,6 +12,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './services/auth.service';
+import { StarRatingComponent } from './components/star-rating/star-rating.component';
 
 import { UserComponent } from './pages/user/user.component';
 import { FormsModule } from '@angular/forms';
@@ -29,6 +30,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     RegisterComponent,
     MovieComponent,
     SearchComponent,
+    StarRatingComponent
   ],
   imports: [
     BrowserModule, 

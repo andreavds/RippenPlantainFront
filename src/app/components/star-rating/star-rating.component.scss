@@ -1,0 +1,12 @@
+.star-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Establece la altura al 100% del viewport height */
+  }
+  
+  ion-icon {
+    font-size: 24px; /* Tamaño base de las estrellas */
+    margin: 0 5px; /* Espacio entre las estrellas */
+  }
+  

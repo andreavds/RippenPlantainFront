@@ -10,21 +10,49 @@
     </div>
     <div class="details">
       <h2>{{ movie.title }}</h2>
+      <p>Original Language: {{ movie.originalLanguage }}</p>
+      <p>Release Date: {{ movie.releaseDate }}</p>
+      <p>Duration: {{ movie.duration }} hours</p>
+      <p>Trailer: <a [href]="movie.trailer" target="_blank">Watch Trailer</a></p>
       <p>Genre: {{ movie.genre }}</p>
       <p class="description-text">Description: {{ movie.description }}</p>
       <div class="ratings">
         <div class="user-rating">
-          <p>User Rating:</p>
-          <p>{{ movie.userMean }}%</p>
+
+          <p>Audience Score</p>
+          <img src="assets/greenplantain.png" alt="User Rating Image">          
+          <p>{{ movie.userMean }} total stars</p>
         </div>
         <div class="critic-rating">
-          <p>Critic Rating:</p>
-          <p>{{ movie.criticMean }}%</p>
+
+          <p>Critics Score</p>
+          <img src="assets/ripeplantain.png" alt="User Rating Image">
+          <p>{{ movie.criticMean }} total stars</p>
         </div>
       </div>
-      
     </div>
   </div>
+  <div class="star-container">
+     <star-rating (ratingChange)="onRated($event)"></star-rating>
+  </div>   
+     <button (click)="submitRating()" class="submitRating">Submit Rating</button>
+     <div *ngIf="showThankYouMessage" class="thank-you-message">
+      Thanks for voting!
+    </div>
+
+    <h3 class="commentsection">Comments section</h3>
+
+    <form (ngSubmit)="submitComment()">
+      <textarea [(ngModel)]="newComment" name="newComment" class="newcomment" rows="4" cols="50"></textarea><br>
+      <button type="submit" class="submitRating">Add Comment</button>
+    </form>    
+
+    <div *ngFor="let comment of comments" class="movie-comment">
+      <p class="comment-author">{{ comment.author }}</p>
+      <p class="comment-content">{{ comment.content }}</p>
+    </div>
+      
+
   <div *ngIf="!movie">
     <p>Loading...</p>
   </div>
